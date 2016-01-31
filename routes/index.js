@@ -10,4 +10,9 @@ router.get('/apply', function(req, res, next) {
   res.render('apply', { title: '企业申请 - 大内购 - 联盟企业员工的内部福利' });
 });
 
+router.post('/apply', function(req, res, next) {
+  console.log('req:' + req.body);
+  res.send({apply:1});
+});
+
 module.exports = router;
