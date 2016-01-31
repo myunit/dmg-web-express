@@ -666,3 +666,7 @@ margin: 36px 0 0  32px;}
 .default-company .default-h2 span{ padding:0 20px; background:#f2f2f2;}
 .default-company .default-ul{ padding-bottom:80px;}
 .default-company .default-ul li{ float:left; width:33.3333%; margin-bottom:38px;}
+
+[v-cloak] {
+    display: none;
+}

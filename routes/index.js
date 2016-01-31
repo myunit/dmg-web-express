@@ -11,7 +11,7 @@ router.get('/apply', function(req, res, next) {
 });
 
 router.post('/apply', function(req, res, next) {
-  console.log('req:' + req.body);
+  console.log('req:' + JSON.stringify(req.body));
   res.send({apply:1});
 });
 

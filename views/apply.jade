@@ -16,7 +16,7 @@ block content
             .booking-content.pad-40.clearfix
                 .apply-box
                     h3 企业申请
-                    #apply.form-validate
+                    #apply.form-validate(v-cloak)
                         .apply-item.clearfix
                             p.fl.p-item
                                 label
@@ -109,11 +109,41 @@ block append scripts
             // 在 `methods` 对象中定义方法
             methods: {
                 send: function (event) {
-                    $.pop({
-                        target: '.ui-apply-box',
-                        posType: 'center',
-                        width: 548,
-                        showMask: true
+                    var self = this;
+                    $.ajax({
+                        url: '/apply',// 跳转到 action
+                        data: {
+                            company: self.company,
+                            industry: self.industry,
+                            fullName: self.fullName,
+                            phone: self.phone,
+                            email: self.email,
+                            address: self.address
+                        },
+                        type: 'post',
+                        cache: false,
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.apply === 1) {
+                                self.company = '';
+                                self.industry = '';
+                                self.fullName = '';
+                                self.phone = '';
+                                self.email = '';
+                                self.address = '';
+                                $.pop({
+                                    target: '.ui-apply-box',
+                                    posType: 'center',
+                                    width: 548,
+                                    showMask: true
+                                });
+                            } else {
+                                self.applied = true;
+                            }
+                        },
+                        error: function () {
+
+                        }
                     });
                 }
             }
