@@ -117,5 +117,13 @@ block content
     p
       | 您的申请已成功提交，大内购会在1-5个工作日内审核。
       | 如有疑问请拨打客服热线4001545001咨询
-  script(type="text/javascript", src="javascripts/jquery-1.8.2.min.js")
-  script(type="text/javascript", src="javascripts/base.js")
+
+block append scripts
+  script(type='text/javascript').
+    $(function () {
+      $('.btn-union').hover(function () {
+        $('.tips-union').show();
+      }, function () {
+        $('.tips-union').hide();
+      })
+    });
