@@ -16,66 +16,66 @@ block content
             .booking-content.pad-40.clearfix
                 .apply-box
                     h3 企业申请
-                    form.form-validate(action="#")
+                    #apply.form-validate()
                         .apply-item.clearfix
                             p.fl.p-item
                                 label
                                     span.red *
                                     | 企业名称
-                                input.txt.txt-name(type="text", name="txt", validate="{required:'请输入企业名称'}")
+                                input.txt.txt-name(type="text", name="txt", v-model="company", validate="{required:'请输入企业名称'}")
                             p.fr.p-item
                                 label
                                     span.red *
                                     | 所属行业
-                                input.txt.txt-name(type="text", name="txt", validate="{required:'请输入所属行业'}")
+                                input.txt.txt-name(type="text", name="txt", v-model="industry", validate="{required:'请输入所属行业'}")
                         .apply-item.clearfix
                             p.fl.p-item
                                 label
                                     span.red *
                                     | 联系人姓名
-                                input.txt.txt-name(type="text", name="txt", validate="{required:'请输入联系人姓名'}")
+                                input.txt.txt-name(type="text", name="txt", v-model="fullName", validate="{required:'请输入联系人姓名'}")
                             p.fr.p-item
                                 label
                                     span.red *
                                     | 联系人手机
-                                input.txt.txt-name(type="text", name="phone", validate="{required:'请输入手机号码',mobile:'请填写正确的手机号码'}")
+                                input.txt.txt-name(type="text", name="phone", v-model="phone", validate="{required:'请输入手机号码',mobile:'请填写正确的手机号码'}")
                         .apply-item.clearfix
                             p.fl.p-item
                                 label
                                     span.red *
                                     | 联系人邮箱
-                                input.txt.txt-name(type="text", name="email", validate="{required:'请填写正确的电子邮箱'}")
+                                input.txt.txt-name(type="text", name="email", v-model="email", validate="{required:'请填写正确的电子邮箱'}")
                             p.fr.p-item
                                 label
                                     span.red *
                                     | 公司地址
-                                input.txt.txt-name(type="text", name="address", validate="{required:'请填写店铺地址'}")
-                        p.apply-mobile-tips 该手机号已申请
+                                input.txt.txt-name(type="text", name="address", v-model="address", validate="{required:'请填写店铺地址'}")
+                        p.apply-mobile-tips(v-show="applied") 该手机号已申请
                         p.apply-tips 为保证审核通过率，所填写内容必须真实有效
                         p.center
-                            input.btn.btn-b.btnValidate.apply-button(type="submit", name="btnSubmit", value="提交")
+                            input.btn.btn-b.btnValidate.apply-button(type="button", name="btnSubmit", @click="send", value="提交")
 
     .footer
         .wrapper
             ul.ul-footer-nav.clearfix
                 li.VIP
-                    a(href="#")
+                    a(href="")
                         span.title VIP
                         span 会员专享
                 li.zp
-                    a(href="#")
+                    a(href="")
                         span.title 100%
                         span 正品保证
                 li.gold
-                    a(href="#")
+                    a(href="")
                         span.title 尊享
                         span 金牌服务
                 li.brand
-                    a(href="#")
+                    a(href="")
                         span.title 优质
                         span 品牌精选
                 li.return
-                    a(href="#")
+                    a(href="")
                         span.title 售后
                         span 七天无理由退货
             .footer-nav-box
@@ -95,13 +95,26 @@ block content
 
 block append scripts
     script(type='text/javascript').
-        $(function () {
-            $(".apply-button").click(function () {
-                $.pop({
-                    target: '.ui-apply-box',
-                    posType: 'center',
-                    width: 548,
-                    showMask: true
-                });
-            })
-        })
+        var vm = new Vue({
+            el: '#apply',
+            data: {
+                company: '',
+                industry: '',
+                fullName: '',
+                phone: '',
+                email: '',
+                address: '',
+                applied: false
+            },
+            // 在 `methods` 对象中定义方法
+            methods: {
+                send: function (event) {
+                    $.pop({
+                        target: '.ui-apply-box',
+                        posType: 'center',
+                        width: 548,
+                        showMask: true
+                    });
+                }
+            }
+        });
