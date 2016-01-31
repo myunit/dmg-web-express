@@ -1,5 +1,121 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .wrapper
+    .header
+      h1
+        a(href="/") 大内购 - 联盟企业员工的内部福利
+      p.header-top-phone.fr 客服热线:
+        strong  400 888 8888
+
+  .default-top
+    .wrapper
+      p.weixin
+        img(src="images/weixin.gif", width="222", height="222", alt="")
+      p
+        img(src="images/slogon.png", width="489", height="47", alt="")
+    .default-btn
+      input.btn.bnt-apply(type="submit", name="", value="企业申请")
+      input.btn.btn-union(type="submit", name="", value="联盟申请")
+      span.tips-union
+
+  .wrapper
+    h2.default-h2
+      span 大内购简介
+    ul.default-ul.clearfix
+      li.clearfix
+        span.img
+          img(src="images/icon-daneigou.png", width="112", height="112", alt="")
+        .default-info
+          h3 大内购
+          p 大内购daneigou.com，是企业员工内部购买的福利分享联盟，是内购优惠和福利分享的完美结合。
+      li.clearfix
+        span.img
+          img(src="images/icon-union.png", width="112", height="112", alt="")
+        .default-info
+          h3 企业联盟
+          p 大内购联盟企业，互相开放企业内购优惠资源，联盟企业员工以内购价进行交易、分享，原厂正品、优质服务，让员工省心省钱地满足生活消费需求。
+      li.clearfix
+        span.img
+          img(src="images/icon-fuli.png", width="112", height="112", alt="")
+        .default-info
+          h3 福利分享
+          p 通过福利分享联盟，变被动福利为主动需求福利，增加员工的自豪感和归属感，留住人才。
+      li.clearfix
+        span.img
+          img(src="images/icon-redefine.png", width="112", height="112", alt="")
+        .default-info
+          h3 重新定义
+          p 大内购重新定义互联网+大背景下的会员制和社群电商模式,在谋求员工福利的同时，打造企业的互联网社群经济。
+
+  .default-company
+    .wrapper
+      h2.default-h2
+        span 已入驻企业
+      ul.default-ul.clearfix
+        li
+          img(src="images/logo-maibaobao.gif", width="360", height="178", alt="")
+        li
+          img(src="images/logo-strong.gif", width="360", height="178", alt="")
+        li
+          img(src="images/logo-glm.gif", width="360", height="178", alt="")
+        li
+          img(src="images/logo-zhiwu.gif", width="360", height="178", alt="")
+        li
+          img(src="images/logo-meet.gif", width="360", height="178", alt="")
+        li
+          img(src="images/logo-jiaxincai.gif", width="360", height="178", alt="")
+
+  .footer
+    .wrapper
+      ul.ul-footer-nav.clearfix
+        li.VIP
+          a(href="#")
+            span.title VIP
+            span 会员专享
+        li.zp
+          a(href="#")
+            span.title 100%
+            span 正品保证
+        li.gold
+          a(href="#")
+            span.title 尊享
+            span 金牌服务
+        li.brand
+          a(href="#")
+            span.title 优质
+            span 品牌精选
+        li.return
+          a(href="#")
+            span.title 售后
+            span 七天无理由退货
+      .footer-nav-box
+        p
+          a(href="about.html") 关于我们
+          | |
+          a(href="#") 服务与保障
+          | |
+          a(href="#") 下单与配送
+          | |
+          a(href="#") 招商合作
+          | |
+          a(href="duty.html") 免责声明
+          | |
+          a(href="use-terms.html") 使用条款
+          | |
+          a(href="reg-agree.html") 注册协议
+        p
+          | 大内购加盟热线：
+          strong 400-888-8888
+          | 工作时间：周一至周五，8:00至下午18:00 售后支持：
+          a.footer-email(href="mailto:service@daneigou.com") service@daneigou.com
+      p.copyright
+        | Copyright © 2015 DANEIGOU.COM 版权所有 | 增值电信业务经营许可证：
+        a.t999(href="#") 浙B2-20150150
+
+  .ui-apply-box
+    p
+      | 您的申请已成功提交，大内购会在1-5个工作日内审核。
+      | 如有疑问请拨打客服热线4001545001咨询
+  script(type="text/javascript", src="javascripts/jquery-1.8.2.min.js")
+  script(type="text/javascript", src="javascripts/base.js")
