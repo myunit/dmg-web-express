@@ -49,7 +49,7 @@ block content
                                 label
                                     span.red *
                                     | 公司地址
-                                input.txt.txt-name(type="text", name="address", v-model="address", validate="{required:'请填写店铺地址'}")
+                                input.txt.txt-name(type="text", name="address", v-model="address", validate="{required:'请填写公司地址'}")
                         p.apply-mobile-tips(v-show="applied") 该手机号已申请
                         p.apply-tips 为保证审核通过率，所填写内容必须真实有效
                         p.center
@@ -79,7 +79,8 @@ block content
                         span.title 售后
                         span 七天无理由退货
             .footer-nav-box
-                p 关于我们 | 服务与保障 | 下单与配送 | 招商合作 | 免责声明 | 使用条款 | 注册协议
+                p
+                    a(href="") 关于我们 | 服务与保障 | 下单与配送 | 招商合作 | 免责声明 | 使用条款 | 注册协议
                 p 大内购加盟热线：
                     strong 400-888-8888
                     | 工作时间：周一至周五，8:00至下午18:00 售后支持：
@@ -114,6 +115,10 @@ block append scripts
                             || !self.email || !self.address) {
                         return;
                     }
+                    if ($('.em-errMes').length > 0) {
+                        return;
+                    }
+
                     $.ajax({
                         url: '/company-join',// 跳转到 action
                         data: {
