@@ -9,29 +9,47 @@ var url = 'http://10.10.5.130:10008/PC_API/WalletService.svc?WSDL';
 var xml = require('xml');
 
 module.exports = {
-	apply: apply
+	companyJoin: companyJoin
 };
 
-function apply(arg, cb) {
+function createCompanyJoinXml(obj) {
+	var xmlObj = [{
+		CreateCompanyJoniIn: [
+			{
+				_attr: {
+					xmlns: 'http://tempuri.org/'
+				}
+			},
+			{
+				CompanyName: obj.company
+			},
+			{
+				CompanyIndustry: obj.industry
+			},
+			{
+				CompanyAddress: obj.address
+			},
+			{
+				ContactName: obj.fullName
+			},
+			{
+				ContactEmail: obj.email
+			},
+			{
+				ContactPhone: obj.phone
+			}
+		]
+	}];
+
+	return xml(xmlObj, true);
+};
+
+function companyJoin(arg, cb) {
 	soap.createClient(url, function(err, client) {
 		if (err) {
 			cb(err, null);
 		}
-		var obj = {};
-		obj.CustomerNo = 24198;
-		var xmlObj = [{
-			GetMoneyByCustomerNoForApp: [
-				{
-					_attr: {
-						xmlns: 'http://tempuri.org/'
-					}
-				},
-				{
-					queryString: JSON.stringify(obj)
-				}
-			]
-		}];
-		client.GetMoneyByCustomerNoForApp(xml(xmlObj, true), function(err, result) {
+		client.CreateCompanyJoniIn(createCompanyJoinXml(arg), function(err, result) {
 			cb(err, result);
 		});
 	});

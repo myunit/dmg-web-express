@@ -11,9 +11,9 @@ router.get('/apply', function(req, res, next) {
   res.render('apply', { title: '企业申请 - 大内购 - 联盟企业员工的内部福利' });
 });
 
-router.post('/apply', function(req, res, next) {
+router.post('/company-join', function(req, res, next) {
   console.log('req:' + JSON.stringify(req.body));
-  soap.apply(null, function (err, result){
+  soap.companyJoin(null, function (err, result){
     console.log('res: ' + JSON.stringify(result));
     res.send({apply:1});
   });
