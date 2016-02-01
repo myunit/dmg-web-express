@@ -651,7 +651,7 @@ margin: 36px 0 0  32px;}
 .default-btn{ position:relative; margin-top:66px;}
 .default-btn .btn{ width:176px; height:48px; font-size:18px; border-raidus:3px; background:#fff; color:#3c1e57; line-height:48px;}
 .default-btn .btn-union{ background:#993c97; color:#fff; margin-left:20px;}
-.tips-union{ background:url(../images/tips.png) no-repeat; width:89px; height:31px; position:absolute; right:456px; top:-34px; float:left; display:none;}
+.tips-union{ background:url(../images/tips.png) no-repeat; width:89px; height:31px; position:absolute; right:38%; top:-34px; float:left; display:none;}
 .default-h2{ font-size:40px; font-weight:normal; color:#4e4e4e; height:40px; line-height:40px; background:url(../images/bg-h2-default.gif) repeat-x center; text-align:center; padding:80px 0;}
 .default-h2 span{ padding:0 20px; background:#fff;}
 .default-ul{ padding:0 30px; margin-right:-66px;}
