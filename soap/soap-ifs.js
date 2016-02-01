@@ -155,7 +155,6 @@ function companyJoin(arg, cb) {
 		if (err) {
 			callback(err, null);
 		}
-		console.log('xml: ' + createCompanyJoinXml(arg));
 		client.CreateCompanyJoinIn(createCompanyJoinXml(arg), function (err, result) {
 			callback(err, result.CreateCompanyJoinInResult);
 		});
