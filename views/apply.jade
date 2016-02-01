@@ -44,7 +44,7 @@ block content
                                 label
                                     span.red *
                                     | 联系人邮箱
-                                input.txt.txt-name(type="text", name="email", v-model="email", validate="{required:'请填写正确的电子邮箱'}")
+                                input.txt.txt-name(type='text', name='email', v-model="email", validate="{required:'请填写电子邮箱',email:'请填写正确的电子邮箱'}")
                             p.fr.p-item
                                 label
                                     span.red *
@@ -128,7 +128,7 @@ block append scripts
                         cache: false,
                         dataType: 'json',
                         success: function (data) {
-                            if (data.apply === 1) {
+                            if (data.status === 1) {
                                 self.company = '';
                                 self.industry = '';
                                 self.fullName = '';

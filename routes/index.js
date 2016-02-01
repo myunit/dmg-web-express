@@ -12,10 +12,18 @@ router.get('/apply', function(req, res, next) {
 });
 
 router.post('/company-join', function(req, res, next) {
-  console.log('req:' + JSON.stringify(req.body));
-  soap.companyJoin(null, function (err, result){
-    console.log('res: ' + JSON.stringify(result));
-    res.send({apply:1});
+  soap.companyJoin(req.body, function (err, result){
+    if (err) {
+      console.error('companyJoin err: ' + err);
+      res.send({status: 0});
+    } else {
+      if (result.HasError === 'true') {
+        console.error('companyJoin err:' + result.Faults.MessageFault.ErrorDescription);
+        res.send({status: 0});
+      } else {
+        res.send({status: 1});
+      }
+    }
   });
 });
 
