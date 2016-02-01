@@ -110,6 +110,10 @@ block append scripts
             methods: {
                 send: function (event) {
                     var self = this;
+                    if (!self.company || !self.industry || !self.fullName || !self.phone
+                            || !self.email || !self.address) {
+                        return;
+                    }
                     $.ajax({
                         url: '/apply',// 跳转到 action
                         data: {
