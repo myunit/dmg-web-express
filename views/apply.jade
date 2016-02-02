@@ -161,3 +161,8 @@ block append scripts
                 }
             }
         });
+
+        vm.$watch('phone', function (newVal, oldVal) {
+            if (newVal != oldVal)
+                vm.applied = false;
+        })
