@@ -5,7 +5,7 @@
  */
 
 var soap = require('soap');
-var url = 'http://220.191.180.230:86/CM/CustomerActionService.svc?WSDL';
+var url = 'http://192.168.28.245:86/CM/CustomerActionService.svc?WSDL';
 var xml = require('xml');
 var utils = require('./utils');
 
